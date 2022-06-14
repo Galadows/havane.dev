@@ -2,11 +2,7 @@
   <div
     class="h-screen w-screen flex flex-col justify-center items-center bg-primary relative"
   >
-    <Navbar class="absolute top-0"/>
-    <h1 class="text-3xl text-tertiary flex">
-      Looking for a dev ?
-      <div class="ml-1 h-full w-[2px] bg-tertiary animate-blink" />
-    </h1>
+    <Navbar class="absolute top-0" />
   </div>
 </template>
 
