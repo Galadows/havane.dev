@@ -10,6 +10,6 @@
 import Navbar from '../components/subComps/Navbar.vue'
 export default {
   components: { Navbar },
-  name: 'About',
+  name: 'Contact',
 }
 </script>

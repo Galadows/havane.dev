@@ -8,7 +8,7 @@
       <NavbarLink to="/about"> About </NavbarLink>
       <NavbarLink to="/contact"> Contact </NavbarLink>
       <div class="absolute right-0 flex items-center h-full p-2">
-        <a class="rounded-md text-tertiary bg-accent-2 p-2 cursor-pointer hover:opacity-100">Hire me</a>
+        <a class=" text-tertiary bg-accent-2 p-2 cursor-pointer hover:bg-tertiary border-accent-2 border-2 hover:text-accent-2">Hire me</a>
       </div>
     </div>
   </div>
