@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full h-16 flex justify-center items-center bg-tertiary drop-shadow text-primary"
+    class="w-full h-16 flex justify-center items-center bg-tertiary drop-shadow text-primary z-10"
   >
     <div class="flex sm:w-2/3 items-center relative">
-      <NavbarLink class="text-accent-2"> Havane Palabaud </NavbarLink>
+      <NavbarLink class="text-accent-2">}{avane Palabaud </NavbarLink>
       <v-separator />
       <NavbarLink to="/about"> About </NavbarLink>
       <NavbarLink to="/contact"> Contact </NavbarLink>

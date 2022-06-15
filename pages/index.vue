@@ -1,39 +1,44 @@
 <template>
-  <div
-    class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
-  >
-    <Navbar class="absolute top-0" />
-
-    <h1 class="text-3xl text-tertiary flex">
-      <div v-html="chat + carret" ref="chatOutput" class="text-center"></div>
-    </h1>
-    <template v-if="!typing">
-      <div class="flex h-20 mt-10 space-x-10">
-        <div
-          v-for="answer in currentAnswers"
-          :key="answer.value"
-          class="text-xl cursor-pointer"
-          :class="answer.classes"
-          @mouseenter="
-            () => {
-              if (answer.id == 0 && no > 3) {
+  <div class="">
+    <div
+      class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
+    >
+      <Navbar class="absolute top-0" />
+      <h1 class="text-3xl text-tertiary flex">
+        <div v-html="chat + carret" ref="chatOutput" class="text-center"></div>
+      </h1>
+      <template v-if="!typing">
+        <div class="flex h-20 mt-10 space-x-10">
+          <div
+            v-for="answer in currentAnswers"
+            :key="answer.value"
+            class="text-xl cursor-pointer animation-appear"
+            :class="answer.classes"
+            @mouseenter="
+              () => {
+                if (answer.id == 0 && no > 3) {
+                }
               }
-            }
-          "
-          @click="
-            () => {
-              if (typing) return
-              currentDialogueId = answer.value
-              if (answer.action) doAction(answer.action)
-              typeWriter(currentQuestion, 'chatOutput')
-            }
-          "
-        >
-          {{ answer.title }}
+            "
+            @click="
+              () => {
+                if (typing) return
+                currentDialogueId = answer.value
+                if (answer.action) doAction(answer.action)
+                typeWriter(currentQuestion, 'chatOutput', 70)
+              }
+            "
+          >
+            {{ answer.title }}
+          </div>
         </div>
-      </div>
-    </template>
-    <div v-else class="flex h-20 mt-10 w-2" />
+      </template>
+      <div v-else class="flex h-20 mt-10 w-2" />
+    </div>
+    <div
+      class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
+    >
+    </div>
   </div>
 </template>
 
@@ -47,6 +52,7 @@ export default {
       currentDialogueId: 1,
       typing: false,
       chat: '',
+      dialogueError: "Well done, you've got the best of me, I'm defeated...",
       no: 0,
       dialogues: [
         {
@@ -61,7 +67,7 @@ export default {
             },
             {
               title: 'no',
-              value: 2,
+              value: 3,
               classes: 'text-tertiary hover:text-red-500',
             },
           ],
@@ -83,23 +89,35 @@ export default {
             },
           ],
         },
+        {
+          id: 2,
+          question:
+            'You\'re at the right place then, <span class="text-accent-2">I</span> can certainly help ! <br> <span class="text-accent-2">Scroll down</span> to see what I can offer.',
+          answers: [],
+        },
+        {
+          id: 3,
+          question:
+            'I knew you weren\'t serious !<br><span class="text-accent-2">I</span> can certainly help ! <br> <span class="text-accent-2">Scroll down</span> to see what I can offer.',
+          answers: [],
+        },
       ],
     }
   },
   mounted() {
-    this.typeWriter(this.currentQuestion, 'chatOutput', 100)
+    this.typeWriter(this.currentQuestion, 'chatOutput', 70)
   },
   methods: {
     async typeWriter(word, ref, delay = 100) {
       if (this.typing) return
-      word = word || "Well done, you've got the best of me, I'm defeated..."
+      word = word || this.dialogueError
       this.typing = true
       let jumpType = false
       await this.delay(300)
       const elem = this.$refs[ref]
       console.log(elem.className)
       let oldClasses = elem.className
-      elem.className += ' bg-accent-2'
+      elem.className += ' bg-secondary'
       await this.delay(500)
       elem.className = oldClasses
       this.chat = ''

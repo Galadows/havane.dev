@@ -10,15 +10,25 @@ module.exports = {
         'accent-2': '#e63946',
       },
       fontFamily: {
-        'sans': ['Righteous'],
+        'sans': ['Outfit-SemiBold'],
       },
       animation: {
         blink: 'blink 3s ease-in-out infinite',
+        appear: 'appear 3s ease-out',
+        disappear: 'disappear 3s ease-out',
       },
       keyframes: {
         blink: {
           '0%, 34%,66% 100%': { opacity: '100%' },
           '35%, 65%': { opacity: '0%' },
+        },
+        appear: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '100%' },
+        },
+        disappear: {
+          '0%': { opacity: '100%' },
+          '100%': { opacity: '0' },
         }
       }
     },
