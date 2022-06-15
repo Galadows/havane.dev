@@ -106,10 +106,10 @@ export default {
       for (let index = 0; index < word.length; index++) {
         const letter = word[index]
         if (letter == '<') jumpType = true
-        if (letter == '>') jumpType = false
 
         this.chat += letter
         if (!jumpType) await this.delay(delay)
+        if (letter == '>') jumpType = false
       }
       this.typing = false
     },
