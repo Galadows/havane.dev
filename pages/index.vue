@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="h-screen w-screen" :class="{'overflow-hidden': !canShowcase}">
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
     >
@@ -34,6 +34,7 @@
         </div>
       </template>
       <div v-else class="flex h-20 mt-10 w-2" />
+      <fa v-if="canShowcase" icon="angle-down" class="text-tertiary animate-bounce absolute bottom-5"/>
     </div>
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
@@ -49,6 +50,7 @@ export default {
   name: 'IndexPage',
   data() {
     return {
+      showcase: false,
       currentDialogueId: 1,
       typing: false,
       chat: '',
@@ -69,6 +71,7 @@ export default {
               title: 'no',
               value: 3,
               classes: 'text-tertiary hover:text-red-500',
+              action: 'showcase'
             },
           ],
         },
@@ -81,6 +84,7 @@ export default {
               title: 'yes',
               value: 2,
               classes: 'text-tertiary hover:text-green-500',
+              action: 'showcase'
             },
             {
               title: 'no',
@@ -137,6 +141,8 @@ export default {
     },
     doAction(action) {
       if (action == 'no') this.no += 1
+      if (action == 'resetNo') this.no = 0
+      if (action == 'showcase') this.showcase = true
     },
   },
   computed: {
@@ -178,6 +184,9 @@ export default {
       }
       return really
     },
+    canShowcase(){
+      return this.showcase && !this.typing
+    }
   },
 }
 </script>
