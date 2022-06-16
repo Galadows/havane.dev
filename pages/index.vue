@@ -39,14 +39,16 @@
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
     >
+    <!-- <Showcase/> -->
     </div>
   </div>
 </template>
 
 <script>
+import Showcase from '~/components/Showcase.vue'
 import Navbar from '../components/subComps/Navbar.vue'
 export default {
-  components: { Navbar },
+  components: { Navbar, Showcase },
   name: 'IndexPage',
   data() {
     return {
