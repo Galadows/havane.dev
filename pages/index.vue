@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen" :class="{'overflow-hidden': !canShowcase}">
+  <div class="h-screen w-screen" :class="{ 'overflow-hidden': !canShowcase }">
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
     >
@@ -12,7 +12,7 @@
           <div
             v-for="answer in currentAnswers"
             :key="answer.value"
-            class="text-xl cursor-pointer animation-appear"
+            class="text-xl cursor-pointer animate-appear"
             :class="answer.classes"
             @mouseenter="
               () => {
@@ -34,12 +34,14 @@
         </div>
       </template>
       <div v-else class="flex h-20 mt-10 w-2" />
-      <fa v-if="canShowcase" icon="angle-down" class="text-tertiary animate-bounce absolute bottom-5"/>
+      <div v-if="canShowcase" class="animate-appear absolute bottom-5">
+        <fa icon="angle-down" class="text-tertiary animate-bounce" />
+      </div>
     </div>
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
     >
-    <!-- <Showcase/> -->
+      <!-- <Showcase/> -->
     </div>
   </div>
 </template>
@@ -73,7 +75,7 @@ export default {
               title: 'no',
               value: 3,
               classes: 'text-tertiary hover:text-red-500',
-              action: 'showcase'
+              action: 'showcase',
             },
           ],
         },
@@ -86,7 +88,7 @@ export default {
               title: 'yes',
               value: 2,
               classes: 'text-tertiary hover:text-green-500',
-              action: 'showcase'
+              action: 'showcase',
             },
             {
               title: 'no',
@@ -186,9 +188,9 @@ export default {
       }
       return really
     },
-    canShowcase(){
+    canShowcase() {
       return this.showcase && !this.typing
-    }
+    },
   },
 }
 </script>
