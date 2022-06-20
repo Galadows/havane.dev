@@ -6,9 +6,9 @@
       <NavbarLink class="text-accent-2">}{avane Palabaud </NavbarLink>
       <v-separator />
       <NavbarLink to="/about"> About </NavbarLink>
-      <NavbarLink to="/contact"> Contact </NavbarLink>
+      <a class="opacity-75 hover:opacity-100" href="mailto:havanepalabaud@gmail.com"> Contact </a>
       <div class="absolute right-0 flex items-center h-full p-2">
-        <a class=" text-tertiary bg-accent-2 p-2 cursor-pointer hover:bg-tertiary border-accent-2 border-2 hover:text-accent-2">Hire me</a>
+        <a href="mailto:havanepalabaud@gmail.com" class=" text-tertiary bg-accent-2 p-2 cursor-pointer hover:bg-tertiary border-accent-2 border-2 hover:text-accent-2">Hire me</a>
       </div>
     </div>
   </div>

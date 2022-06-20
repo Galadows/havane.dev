@@ -5,7 +5,7 @@
     >
       <Navbar class="absolute top-0" />
       <h1 class="text-3xl text-tertiary flex">
-        <div v-html="chat + carret" ref="chatOutput" class="text-center"></div>
+        <div v-html="chat + carret" ref="chatOutput" class="text-center snap-center"></div>
       </h1>
       <template v-if="!typing">
         <div class="flex h-20 mt-10 space-x-10">
@@ -41,16 +41,17 @@
     <div
       class="h-screen w-screen flex flex-col justify-center items-center bg-primary-dark relative"
     >
-      <!-- <Showcase/> -->
+      <Wip />
     </div>
   </div>
 </template>
 
 <script>
 import Showcase from '~/components/Showcase.vue'
+import Wip from '~/components/wip.vue'
 import Navbar from '../components/subComps/Navbar.vue'
 export default {
-  components: { Navbar, Showcase },
+  components: { Navbar, Showcase, Wip },
   name: 'IndexPage',
   data() {
     return {
@@ -189,7 +190,7 @@ export default {
       return really
     },
     canShowcase() {
-      return this.showcase && !this.typing
+      return true //this.showcase && !this.typing
     },
   },
 }
