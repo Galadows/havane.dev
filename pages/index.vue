@@ -124,7 +124,7 @@ export default {
       let jumpType = false
       await this.delay(300)
       const elem = this.$refs[ref]
-      console.log(elem.className)
+      // console.log(elem.className)
       let oldClasses = elem.className
       elem.className += ' bg-secondary'
       await this.delay(500)
@@ -155,7 +155,7 @@ export default {
       let question
       this.dialogues.forEach((dialogue) => {
         if (dialogue.id == this.currentDialogueId) {
-          console.log('Current dialogue: ', dialogue)
+          // console.log('Current dialogue: ', dialogue)
           question = dialogue.question
           if (dialogue.id == 0) {
             question = question.replace('you <', 'you' + this.really + ' <')
