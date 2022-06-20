@@ -34,7 +34,7 @@
         </div>
       </template>
       <div v-else class="flex h-20 mt-10 w-2" />
-      <div v-if="canShowcase" class="animate-appear absolute bottom-5 h-1">
+      <div v-if="canShowcase" class="animate-appear absolute bottom-5 h-1 w-1">
         <fa icon="angle-down" class="text-tertiary animate-bounce" />
       </div>
     </div>
