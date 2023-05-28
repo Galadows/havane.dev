@@ -11,11 +11,11 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/ownicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/Havane-rouge.svg' }],
   },
 
   server: {
-    host: '0.0.0.0', // default: localhost
+    host: '192.168.1.74', // default: localhost
   },
 
   ssr: false,
